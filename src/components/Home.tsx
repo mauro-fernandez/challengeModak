@@ -3,7 +3,7 @@ import {View, Text} from 'react-native';
 import {getAllArtwork} from '../Api/artwork';
 
 interface HomeProps {
-  title: string;
+  title?: string;
   description?: string;
 }
 
