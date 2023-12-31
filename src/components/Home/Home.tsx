@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text} from 'react-native';
-import {getAllArtwork} from '../Api/artwork';
+import {styles} from './Home.styles';
+import {View, Text, ScrollView} from 'react-native';
+import {getAllArtwork} from '../../Api/artwork';
+import LoaderComponent from '../Loader/Loader';
 
 interface HomeProps {
   title?: string;
@@ -21,7 +23,7 @@ const Home: React.FC<HomeProps> = ({title, description}) => {
 
   const handleFetchArtworks = async () => {
     try {
-      const apiData = await getAllArtwork(1, 10);
+      const apiData = await getAllArtwork(1, 30);
       setArtworks(apiData.data);
     } catch (error) {
       setError(error.message);
@@ -33,11 +35,13 @@ const Home: React.FC<HomeProps> = ({title, description}) => {
   }, []);
 
   return (
-    <View>
+    <ScrollView
+      style={styles.mainContainer}
+      contentContainerStyle={styles.mainInfoContainer}>
       {artworks ? (
         <View>
-          <Text>Artworks from API:</Text>
-          {artworks.map((artwork, index) => (
+          <Text style={styles.mainTitle}>Artworks</Text>
+          {artworks?.map((artwork, index) => (
             <View key={index}>
               <Text>Title: {artwork.title}</Text>
               <Text>Artist: {artwork.artist_display}</Text>
@@ -46,10 +50,10 @@ const Home: React.FC<HomeProps> = ({title, description}) => {
           ))}
         </View>
       ) : (
-        <Text>Loading...</Text>
+        <LoaderComponent />
       )}
-      {error && <Text style={{ color: 'red' }}>Error: {error}</Text>}
-    </View>
+      {error && <Text style={{color: 'red'}}>Error: {error}</Text>}
+    </ScrollView>
   );
 };
 

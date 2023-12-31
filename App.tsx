@@ -12,8 +12,8 @@ import {
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-import Home from './src/components/Home';
-import Favourites from './src/components/Favourites';
+import Home from './src/components/Home/Home.tsx';
+import Favourites from './src/components/Favourites/Favourites.tsx';
 
 const Stack = createStackNavigator();
 
