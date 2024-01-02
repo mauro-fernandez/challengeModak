@@ -45,10 +45,11 @@ const DetailScreenProps: React.FC = () => {
     handleFetchArtworks();
   }, []);
 
-  const imageUrl = `https://www.artic.edu/iiif/2/${artworksImage}/full/1686,/0/default.jpg`;
+  const imageUrl = `https://www.artic.edu/iiif/2/${artworksImage}/full/600,/0/default.jpg`;
 
   const handleGoBack = () => {
     navigation.goBack();
+    // TODO: Reload Favorites for future features
   };
 
   const addRemoveFromFavorites = () => {
@@ -66,11 +67,11 @@ const DetailScreenProps: React.FC = () => {
         <View style={styles.mainContainer}>
           <ScrollView
             contentContainerStyle={styles.scrollViewContainer}
-            showsVerticalScrollIndicator={false}>
+            showsVerticalScrollIndicator={false}
+          >
             <Text style={styles.mainTitle}>{artworks?.title}</Text>
             <Text
               style={styles.subTitle}>{`by ${artworks?.artist_title}`}</Text>
-
             <Image
               source={{uri: imageUrl}}
               resizeMode="contain"
@@ -95,10 +96,8 @@ const DetailScreenProps: React.FC = () => {
                 {`${artworks?.thumbnail.width} cm x ${artworks?.thumbnail.height} cm`}
               </Text>
             </View>
-
             <View style={[styles.boxContainer, styles.extraMargin]}>
               <Text style={styles.boxTitle}>Description</Text>
-
               <Text style={styles.boxSubtitle}>{descriptionFormatter}</Text>
             </View>
           </ScrollView>

@@ -1,22 +1,33 @@
 import {StyleSheet} from 'react-native';
+import {Colors} from '../../constants/Colors';
 
 export const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 10,
+    flexDirection: 'row',
   },
-  mainTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  imageContainer: {
+    width: '50%',
+    paddingLeft: '5%',
+  },
+  textContainer: {
+    width: '45%',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    alignContent: 'center',
   },
   image: {
     width: '100%',
-    height: '100%',
+    height: 150,
   },
-  text: {
-    fontSize: 20,
+  textTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: Colors.turquoiseGreen,
+  },
+  textArtist: {
+    fontSize: 14,
     fontWeight: '500',
+    color: Colors.turquoiseGreen,
   },
 });

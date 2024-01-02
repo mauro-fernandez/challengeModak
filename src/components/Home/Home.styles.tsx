@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {Colors} from '../../constants/Colors';
 
 export const styles = StyleSheet.create({
   mainContainer: {
@@ -7,21 +8,20 @@ export const styles = StyleSheet.create({
     paddingHorizontal: `5%`,
   },
   mainInfoContainer: {
-    // interfiere con el scroll pero centra el loader VER!!
-    //flex: 1,
-  //  alignSelf: 'center',
-  //  justifyContent: 'center'
-  justifyContent: 'space-between'
+    justifyContent: 'space-between'
   },
   mainTitle: {
     fontSize: 30,
     fontWeight: '600',
-    color: `#3700B3`
+    color: Colors.mediumGreen
   },
   thumbnailSeparator: {
-    borderColor: "red",
-    borderWidth: 1,
-    paddingVertical: 40,
+    borderWidth: 2,
+    borderColor: Colors.lightGreen,
+    borderRadius: 20,
     marginVertical: 10
+  },
+  errorText: {
+    color: 'red',
   }
 });

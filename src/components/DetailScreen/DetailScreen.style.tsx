@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {Colors} from '../../constants/Colors';
 
 export const styles = StyleSheet.create({
   mainContainer: {
@@ -9,9 +10,9 @@ export const styles = StyleSheet.create({
   scrollViewContainer: {
     flexGrow: 1,
     padding: 16,
-    backgroundColor: '#83d0c9',
+    backgroundColor: Colors.pastelGreen,
     borderWidth: 2,
-    borderColor: '#009688',
+    borderColor: Colors.lightGreen,
     borderRadius: 20,
   },
   mainTitle: {
@@ -19,27 +20,27 @@ export const styles = StyleSheet.create({
     fontWeight: '600',
     textAlign: 'center',
     textAlignVertical: 'center',
-    color: '#191919',
+    color: Colors.neutralBlack,
   },
   subTitle: {
     fontSize: 20,
     fontWeight: '500',
     textAlign: 'center',
     textAlignVertical: 'center',
-    color: '#191919',
+    color: Colors.neutralBlack,
     marginBottom: 10,
   },
   imageContainer: {
     flex: 1,
     borderWidth: 2,
-    borderColor: '#009688',
+    borderColor: Colors.lightGreen,
     borderRadius: 20,
   },
   image: {
     width: '100%',
     height: 200,
     borderWidth: 2,
-    borderColor: '#009688',
+    borderColor: Colors.lightGreen,
     borderRadius: 20,
   },
   manyBoxContainer: {
@@ -52,7 +53,7 @@ export const styles = StyleSheet.create({
   boxContainer: {
     flex: 1,
     borderWidth: 1,
-    borderColor: '#009688',
+    borderColor: Colors.lightGreen,
     alignSelf: 'center',
     alignContent: 'center',
     justifyContent: 'center',
@@ -65,12 +66,12 @@ export const styles = StyleSheet.create({
   boxTitle: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#191919',
+    color: Colors.neutralBlack
   },
   boxSubtitle: {
     fontSize: 14,
     fontWeight: '400',
-    color: '#191919',
+    color: Colors.neutralBlack,
   },
   extraMargin: {
     marginTop: 10,
@@ -82,7 +83,7 @@ export const styles = StyleSheet.create({
     left: 40,
     padding: 20,
     borderRadius: 40,
-    backgroundColor: '#3498db',
+    backgroundColor: Colors.primaryBlue,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -92,15 +93,11 @@ export const styles = StyleSheet.create({
     right: 40,
     padding: 20,
     borderRadius: 40,
-    borderColor: '#ff3377',
+    borderColor: Colors.heartRed,
     borderWidth: 2,
-    backgroundColor: '#ffffff',
+    backgroundColor: Colors.white,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
   },
   laoderContainer: {
     flex: 1,

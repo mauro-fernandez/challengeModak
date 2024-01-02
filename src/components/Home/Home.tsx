@@ -6,11 +6,6 @@ import {getFavorites, addToFavorites} from '../../utils/functions';
 import LoaderComponent from '../Loader/Loader';
 import Thumbnail from '../Thumbnail/Thumbnail';
 
-interface HomeProps {
-  title?: string;
-  description?: string;
-}
-
 interface Artwork {
   id: number;
   title: string;
@@ -20,14 +15,14 @@ interface Artwork {
   dimensions: string;
 }
 
-const Home: React.FC<HomeProps> = ({title, description}) => {
+const Home: React.FC = () => {
   const [artworks, setArtworks] = useState<Artwork[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<string[]>([]);
 
   const handleFetchArtworks = async () => {
     try {
-      const apiData = await getAllArtwork(1, 10);
+      const apiData = await getAllArtwork(1, 40);
       setArtworks(apiData.data);
     } catch (error) {
       setError(error.message);
@@ -84,7 +79,7 @@ const Home: React.FC<HomeProps> = ({title, description}) => {
       ) : (
         <LoaderComponent />
       )}
-      {error && <Text style={{color: 'red'}}>Error: {error}</Text>}
+      {error && <Text style={styles.errorText}>Error: {error}</Text>}
     </ScrollView>
   );
 };

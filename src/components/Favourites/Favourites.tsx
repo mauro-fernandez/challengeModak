@@ -5,6 +5,8 @@ interface FavouritesProps {
   title?: string;
 }
 
+// TODO: Favourite section
+
 const Favourites: React.FC<FavouritesProps> = ({ title, description }) => {
   return (
     <View>

@@ -13,9 +13,9 @@ interface ThumbnailProps {
 }
 
 const Thumbnail: React.FC<ThumbnailProps> = ({id, title, artist, image_id, myFavorites, addToFavorites }) => {
-  const imageUrl = `https://www.artic.edu/iiif/2/${image_id}/full/1686,/0/default.jpg`;
-
   const navigation = useNavigation();
+  
+  const imageUrl = `https://www.artic.edu/iiif/2/${image_id}/full/600,/0/default.jpg`;
 
   const onPressCard = () => {
     navigation.navigate('DetailScreen', {artworkId: id, myFavorites: myFavorites, addToFavorites: addToFavorites});
@@ -27,13 +27,18 @@ const Thumbnail: React.FC<ThumbnailProps> = ({id, title, artist, image_id, myFav
         key={id}
         onPress={onPressCard}
         style={styles.mainContainer}>
-        <Image
-          source={{uri: imageUrl}}
-          resizeMode="contain"
-          style={styles.image}
-        />
-        <Text style={styles.text}>{title}</Text>
-        <Text style={styles.text}>{artist}</Text>
+        <View style={styles.imageContainer}>
+          <Image
+            source={{uri: imageUrl}}
+            resizeMode="contain"
+            style={styles.image}
+          />
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={styles.textTitle}>{title}</Text>
+          <Text style={styles.textArtist}>{`by ${artist}`}</Text>
+
+        </View>
       </TouchableOpacity>
     </>
   );
