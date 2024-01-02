@@ -81,3 +81,7 @@ Additional bonus if you implement some kind of push notifications.
 Please share with us the link of the repository containing the application source code when finished and let us know to schedule the meeting to review the app.
 
 Feel free to ping us any question you might have about this technical assessment.
+
+# Personal notes
+
+Since i don't have a macbook, I cannot build and test on ios emulator. Probably there will be some css minor changes to make! There is also icons configuration to do, which i only did for android...

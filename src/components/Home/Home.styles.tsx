@@ -23,5 +23,10 @@ export const styles = StyleSheet.create({
   },
   errorText: {
     color: 'red',
-  }
+  },
+  laoderContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

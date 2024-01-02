@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const API_BASE_URL = 'https://api.artic.edu/api/v1/artworks';
+import {API_BASE_URL, TypesOfArts} from '../constants/api';
 
 interface Artwork {
   id: number;
@@ -19,7 +18,7 @@ export const getAllArtwork = async (
   limit: number = 100,
 ): Promise<ApiResponse> => {
   try {
-    const response = await axios.get<ApiResponse>(`${API_BASE_URL}?page=${page}&limit=${limit}`);
+    const response = await axios.get<ApiResponse>(`${API_BASE_URL}${TypesOfArts.artwork}?page=${page}&limit=${limit}`);
 
     // mapear la respuesta en lo que se necesita porque el obj es muy grande
     return response.data;
@@ -30,7 +29,7 @@ export const getAllArtwork = async (
 
 export const getOneArtworkById = async (artworkId: number): Promise<ApiResponse> => {
   try {
-    const response = await axios.get<ApiResponse>(`${API_BASE_URL}/${artworkId}`);
+    const response = await axios.get<ApiResponse>(`${API_BASE_URL}${TypesOfArts.artwork}/${artworkId}`);
 
     return response.data;
   } catch (error) {

@@ -56,31 +56,34 @@ const Home: React.FC = () => {
   };
 
   return (
-    <ScrollView
-      style={styles.mainContainer}
-      contentContainerStyle={styles.mainInfoContainer}>
+    <>
       {artworks ? (
-        <View>
-          <Text style={styles.mainTitle}>Artworks</Text>
-
-          {artworks?.map((artwork, index) => (
-            <View style={styles.thumbnailSeparator} key={index}>
-              <Thumbnail
-                id={artwork.id}
-                title={artwork.title}
-                artist={artwork.artist_title}
-                image_id={artwork.image_id}
-                addToFavorites={handleAddToFavorites}
-                myFavorites={favorites}
-              />
-            </View>
-          ))}
-        </View>
+        <ScrollView
+          style={styles.mainContainer}
+          contentContainerStyle={styles.mainInfoContainer}>
+          <View>
+            <Text style={styles.mainTitle}>Artworks</Text>
+            {artworks?.map((artwork, index) => (
+              <View style={styles.thumbnailSeparator} key={index}>
+                <Thumbnail
+                  id={artwork.id}
+                  title={artwork.title}
+                  artist={artwork.artist_title}
+                  image_id={artwork.image_id}
+                  addToFavorites={handleAddToFavorites}
+                  myFavorites={favorites}
+                />
+              </View>
+            ))}
+          </View>
+          {error && <Text style={styles.errorText}>Error: {error}</Text>}
+        </ScrollView>
       ) : (
-        <LoaderComponent />
+        <View style={styles.laoderContainer}>
+          <LoaderComponent />
+        </View>
       )}
-      {error && <Text style={styles.errorText}>Error: {error}</Text>}
-    </ScrollView>
+    </>
   );
 };
 
