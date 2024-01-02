@@ -3,6 +3,7 @@ import {styles} from './Home.styles';
 import {View, Text, ScrollView} from 'react-native';
 import {getAllArtwork} from '../../Api/artwork';
 import LoaderComponent from '../Loader/Loader';
+import Thumbnail from '../Thumbnail/Thumbnail';
 
 interface HomeProps {
   title?: string;
@@ -12,7 +13,8 @@ interface HomeProps {
 interface Artwork {
   id: number;
   title: string;
-  artist_display: string;
+  image_id: string;
+  artist_title: string;
   thumbnail: any;
   dimensions: string;
 }
@@ -23,7 +25,9 @@ const Home: React.FC<HomeProps> = ({title, description}) => {
 
   const handleFetchArtworks = async () => {
     try {
-      const apiData = await getAllArtwork(1, 30);
+      const apiData = await getAllArtwork(1, 10);
+      console.log(apiData.data.image)
+
       setArtworks(apiData.data);
     } catch (error) {
       setError(error.message);
@@ -37,16 +41,22 @@ const Home: React.FC<HomeProps> = ({title, description}) => {
   return (
     <ScrollView
       style={styles.mainContainer}
-      contentContainerStyle={styles.mainInfoContainer}>
+      contentContainerStyle={styles.mainInfoContainer}
+      >
       {artworks ? (
         <View>
           <Text style={styles.mainTitle}>Artworks</Text>
+         
           {artworks?.map((artwork, index) => (
-            <View key={index}>
-              <Text>Title: {artwork.title}</Text>
-              <Text>Artist: {artwork.artist_display}</Text>
-              {/* ... other properties */}
-            </View>
+             <View style={styles.thumbnailSeparator} key={index}>
+              <Thumbnail
+                id={artwork.id}
+                title={artwork.title}
+                artist={artwork.artist_title}
+                image_id={artwork.image_id}
+
+              />
+          </View>
           ))}
         </View>
       ) : (

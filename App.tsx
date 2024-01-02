@@ -14,6 +14,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Home from './src/components/Home/Home.tsx';
 import Favourites from './src/components/Favourites/Favourites.tsx';
+import DetailScreen from './src/components/DetailScreen/DetailScreen.tsx';
 
 const Stack = createStackNavigator();
 
@@ -24,8 +25,6 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  // <Favourites title={'hola'}/>
-  
   return (
     <SafeAreaView style={[backgroundStyle, {flex: 1}]}>
       <StatusBar
@@ -38,14 +37,21 @@ function App(): React.JSX.Element {
             name="Home"
             component={Home}
             options={() => ({
-              headerShown: false
+              headerShown: false,
             })}
           />
           <Stack.Screen
             name="Favourites"
             component={Favourites}
             options={() => ({
-              headerShown: false
+              headerShown: false,
+            })}
+          />
+          <Stack.Screen
+            name="DetailScreen"
+            component={DetailScreen}
+            options={() => ({
+              headerShown: false,
             })}
           />
         </Stack.Navigator>
