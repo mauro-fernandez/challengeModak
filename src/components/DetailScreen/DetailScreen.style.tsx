@@ -92,7 +92,9 @@ export const styles = StyleSheet.create({
     right: 40,
     padding: 20,
     borderRadius: 40,
-    backgroundColor: '#ff3377', // Adjust the color as needed
+    borderColor: '#ff3377',
+    borderWidth: 2,
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
   },

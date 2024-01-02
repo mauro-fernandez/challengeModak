@@ -8,15 +8,17 @@ interface ThumbnailProps {
   title?: string;
   artist?: string;
   image_id?: string;
+  addToFavorites: any;
+  myFavorites: string[];
 }
 
-const Thumbnail: React.FC<ThumbnailProps> = ({id, title, artist, image_id}) => {
+const Thumbnail: React.FC<ThumbnailProps> = ({id, title, artist, image_id, myFavorites, addToFavorites }) => {
   const imageUrl = `https://www.artic.edu/iiif/2/${image_id}/full/1686,/0/default.jpg`;
 
   const navigation = useNavigation();
 
   const onPressCard = () => {
-    navigation.navigate('DetailScreen', {artworkId: id});
+    navigation.navigate('DetailScreen', {artworkId: id, myFavorites: myFavorites, addToFavorites: addToFavorites});
   };
 
   return (

@@ -21,16 +21,18 @@ interface Artwork {
 const DetailScreenProps: React.FC = () => {
   const navigation = useNavigation();
   const route = useRoute();
-  const {artworkId} = route.params;
+  const {artworkId, myFavorites, addToFavorites} = route.params;
 
   const [artworks, setArtworks] = useState<Artwork | null>(null);
   const [artworksImage, setArtworksImage] = useState<Artwork | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [showHeart, setShowHeart] = useState<boolean>(
+    myFavorites.includes(artworkId),
+  );
 
   const handleFetchArtworks = async () => {
     try {
       const apiData = await getOneArtworkById(artworkId);
-      console.log(apiData.data);
 
       setArtworks(apiData.data);
       setArtworksImage(apiData.data.image_id);
@@ -49,9 +51,10 @@ const DetailScreenProps: React.FC = () => {
     navigation.goBack();
   };
 
-  const handleAddToFavorites = () => {
-    console.log('Added to favorites!');
-  };
+  const addRemoveFromFavorites = () => {
+    setShowHeart(prev => !prev)
+    addToFavorites(artworkId)
+  }
 
   const descriptionFormatter = artworks?.description
     ? artworks?.description.replace(/<[^>]*>/g, '')
@@ -106,8 +109,12 @@ const DetailScreenProps: React.FC = () => {
 
           <TouchableOpacity
             style={styles.buttonRight}
-            onPress={handleAddToFavorites}>
-            <Icon name="heart" size={35} color="white" />
+            onPress={addRemoveFromFavorites}>
+            {showHeart ? (
+              <Icon name="heart" size={35} color="red" />
+            ) : (
+              <Icon name="heart" size={35} color="grey" />
+            )}
           </TouchableOpacity>
         </View>
       ) : (
