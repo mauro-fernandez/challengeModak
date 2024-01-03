@@ -6,14 +6,16 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: '5%',
     paddingVertical: '5%',
+    backgroundColor: Colors.lightGrey
   },
   scrollViewContainer: {
     flexGrow: 1,
     padding: 16,
-    backgroundColor: Colors.pastelGreen,
+    backgroundColor: Colors.white,
     borderWidth: 2,
     borderColor: Colors.lightGreen,
     borderRadius: 20,
+    elevation: 2
   },
   mainTitle: {
     fontSize: 24,
@@ -30,17 +32,12 @@ export const styles = StyleSheet.create({
     color: Colors.neutralBlack,
     marginBottom: 10,
   },
-  imageContainer: {
-    flex: 1,
-    borderWidth: 2,
-    borderColor: Colors.lightGreen,
-    borderRadius: 20,
-  },
   image: {
     width: '100%',
     height: 200,
     borderWidth: 2,
     borderColor: Colors.lightGreen,
+    backgroundColor: Colors.pastelGreen,
     borderRadius: 20,
   },
   manyBoxContainer: {
@@ -62,6 +59,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 20,
     padding: 7,
+    backgroundColor: Colors.pastelGreen,
   },
   boxTitle: {
     fontSize: 16,

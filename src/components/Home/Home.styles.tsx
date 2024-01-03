@@ -3,11 +3,12 @@ import {Colors} from '../../constants/Colors';
 
 export const styles = StyleSheet.create({
   mainContainer: {
-    marginTop: `10%`,
-    marginBottom: `10%`,
-    paddingHorizontal: `5%`,
+    backgroundColor: Colors.lightGrey
   },
   mainInfoContainer: {
+    paddingTop: `5%`,
+    paddingBottom: `5%`,
+    paddingHorizontal: `5%`,
     justifyContent: 'space-between'
   },
   mainTitle: {
@@ -19,7 +20,9 @@ export const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: Colors.lightGreen,
     borderRadius: 20,
-    marginVertical: 10
+    marginVertical: 10,
+    backgroundColor: Colors.white,
+    elevation: 5
   },
   errorText: {
     color: 'red',

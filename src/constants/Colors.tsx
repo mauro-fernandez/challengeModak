@@ -9,4 +9,5 @@ export const Colors = {
   primaryBlue: '#3498db',
   white: '#ffffff',
   heartRed: '#ff3377',
+  lightGrey: '#efe5e5',
 };

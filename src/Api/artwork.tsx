@@ -20,7 +20,7 @@ export const getAllArtwork = async (
   try {
     const response = await axios.get<ApiResponse>(`${API_BASE_URL}${TypesOfArts.artwork}?page=${page}&limit=${limit}`);
 
-    // mapear la respuesta en lo que se necesita porque el obj es muy grande
+    // TODO: mapear la respuesta en lo que se necesita porque el obj es muy grande
     return response.data;
   } catch (error) {
     throw new Error(error.message);
@@ -30,7 +30,7 @@ export const getAllArtwork = async (
 export const getOneArtworkById = async (artworkId: number): Promise<ApiResponse> => {
   try {
     const response = await axios.get<ApiResponse>(`${API_BASE_URL}${TypesOfArts.artwork}/${artworkId}`);
-
+  // TODO: mapear la respuesta en lo que se necesita porque el obj es muy grande
     return response.data;
   } catch (error) {
     throw new Error(error.message);
