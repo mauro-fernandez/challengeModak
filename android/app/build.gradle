@@ -1,7 +1,8 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
-apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle") // config para usar los iconos
+apply plugin: 'com.google.gms.google-services' // config Firebase
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -110,11 +111,18 @@ dependencies {
     implementation("com.facebook.react:react-android")
     implementation("com.facebook.react:flipper-integration")
 
+    implementation platform('com.google.firebase:firebase-bom:32.7.0') // Firebase config
+    implementation 'com.google.firebase:firebase-analytics' // ver si tengo que agregar más dependencias
+    implementation 'com.google.firebase:firebase-messaging'// ver si sirve esta
+
+
+
     if (hermesEnabled.toBoolean()) {
         implementation("com.facebook.react:hermes-android")
     } else {
         implementation jscFlavor
     }
+ 
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

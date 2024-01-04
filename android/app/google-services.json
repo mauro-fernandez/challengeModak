@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "355952370683",
+    "project_id": "challengemodak",
+    "storage_bucket": "challengemodak.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355952370683:android:f660a607e28b0bf381e15e",
+        "android_client_info": {
+          "package_name": "com.challengemodak"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0o583U4yU4cWSGK4TJ-Ewu89aIbU_qL4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect } from 'react';
 import {
   SafeAreaView,
   StatusBar,
@@ -13,11 +13,49 @@ import Home from './src/components/Home/Home.tsx';
 import Favourites from './src/components/Favourites/Favourites.tsx';
 import DetailScreen from './src/components/DetailScreen/DetailScreen.tsx';
 
+import { Alert, Linking } from 'react-native';
+// Firebase
+import {
+  checkNotificationPermission,
+  requestPermission,
+  notificationListener
+} from './src/utils/functions.tsx';
+import messaging from '@react-native-firebase/messaging';
+
+
 const Stack = createStackNavigator();
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
+  
+  useEffect(() => {
+    checkNotificationPermission()
+    // requestPermission();
+    notificationListener();
+  }, []);
+
+
+  useEffect(() => {
+    const handleNotification = async (remoteMessage) => {
+      const { notification, data} = remoteMessage;
+
+      if (notification) {
+        const bodyTitle = notification.title
+        const bodyText = notification.body;
+        Alert.alert(bodyTitle, bodyText,  [
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ])
+      }
+    };
+
+    const unsubscribe = messaging().onMessage(handleNotification);
+
+    return unsubscribe;
+  }, []);
+
+
+  
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
